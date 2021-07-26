@@ -64,7 +64,7 @@ def sendEmail(sender,receiver,message):
     server.starttls()
     
     # Low security apps login must be enabled
-    server.login('tarunmathur97@gmail.com','TarunHNA')
+    server.login('youremail@email.com','your password')
     server.sendmail(sender, receiver, message)
     server.close()
     
@@ -171,7 +171,7 @@ if __name__ == "__main__":
                 # to.replace(" ","")
                 speak("what is the message you want to send")
                 message = takeCommand()
-                sender = 'tarunmathur97@gmail.com'
+                sender = 'youremail@gmail.com'
                 sendEmail(sender,receiver,message)
                 speak("Email has been sent successfully.")
 
