@@ -22,7 +22,7 @@ def speak(audio):
     engine.runAndWait()
 
 def start():
-    hour = int(datetime.datetime.now().hour)        #getting hour in currnet time
+    hour = int(datetime.datetime.now().hour)        
     if hour>=0 and hour<12 :
         speak("Very Good Morning!")
     elif hour>12 and hour<18 :
@@ -148,22 +148,26 @@ if __name__ == "__main__":
 
         elif 'open stackoverflow' in voice_data:
             webbrowser.open("stackoverflow.com")
-
+        
+        #Search any keyword
         elif 'search' in voice_data:
             speak('what you want me to search?')
             search = takeCommand()
             url = "https://google.com/search?q=" + search
             webbrowser.get().open(url)
             speak('here is what I found for'+ search)
-
+            
+        #Find any location
         elif 'find location' in voice_data or 'find place' in voice_data:
             speak('tell me the location')
             location = takeCommand()
             url = 'https://google.nl/maps/place/' + location + '/&amp;'
             webbrowser.get().open(url)
             speak('here is location of ' + location)
+            
+        #Send emails with just voice commands
 
-        elif 'send an email' in voice_data:
+        elif 'send an email' in voice_data or 'send a mail' in voice_data:
             try:
                 speak('to whom you want to send the e-mail')
                 receiver = takeCommand()
@@ -184,5 +188,5 @@ if __name__ == "__main__":
             
 
         elif 'exit' in voice_data:
-            speak('Hope! I helped you')
+            speak('Hope! I was helpful to you')
             exit()
